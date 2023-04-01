@@ -102,7 +102,7 @@ gitshockd tx staking create-validator
         --pubkey=$PUBKEY \
         --from=validator \
         --yes \
-        --node=tcp://localhost:26657 \
+        --node=tcp://localhost:${YENI_PORT}657 \
         --chain-id=${CHAIN_ID} \
         --commission-max-change-rate=0.01 \
         --commission-max-rate=0.20 \
