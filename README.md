@@ -1,8 +1,7 @@
 # Gitshock
 
-```
-```
-```
+
+
 ///Güncelliyelim
 ```
 sudo apt update
