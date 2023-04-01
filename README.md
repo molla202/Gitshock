@@ -16,13 +16,7 @@ wget https://go.dev/dl/go1.18.2.linux-amd64.tar.gz
 ```
 sudo tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
 ```
-///Kullanıcı Yapılandırma
-```
-sudo useradd -m gitshockd
-sudo su -s /bin/bash -l gitshockd
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
-```
+
 ///Dosyaları Çekiyoruz
 ```
 git clone https://github.com/gitshock-labs/gitshock-ibc-yui $HOME/gitshockd
