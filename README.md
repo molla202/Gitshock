@@ -18,8 +18,8 @@ sudo tar -C /usr/local -xzf go1.18.2.linux-amd64.tar.gz
 ```
 ///Kullanıcı Yapılandırma
 ```
-sudo useradd -m neware
-sudo su -s /bin/bash -l neware
+sudo useradd -m gitshockd
+sudo su -s /bin/bash -l gitshockd
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 ```
