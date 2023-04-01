@@ -66,8 +66,22 @@ LimitNOFILE=65535
 wget https://raw.githubusercontent.com/gitshock-labs/testnet-list/master/testnet/arnhemia -O $HOME/.gitshockd/config/genesis.json
 wget https://raw.githubusercontent.com/gitshock-labs/testnet-list/master/testnet/arnhemia -O $HOME/.gitshockd/config/addrbook.json 
 ```
+////Port değiştimeniz gerekiyorsa/////
+```
+YENI_PORT=38
+sed -i.bak -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${YENI_PORT}658\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${YENI_PORT}657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${YENI_PORT}060\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${YENI_PORT}656\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${YENI_PORT}660\"%" $HOME/.gitshockd/config/config.toml
+
+sed -i.bak -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${YENI_PORT}317\"%; s%^address = \":8080\"%address = \":${YENI_PORT}080\"%; s%^address = \"0.0.0.0:9090\"%address = \"0.0.0.0:${YENI_PORT}090\"%; s%^address = \"0.0.0.0:9091\"%address = \"0.0.0.0:${YENI_PORT}091\"%" $HOME/.gitshockd/config/app.toml
+```
 
 
+///Başlatıyoruz
+```
+sudo systemctl daemon-reload
+sudo systemctl enable gitshockd
+sudo systemctl start gitshockd
+sudo journalctl -u gitshockd -f --no-hostname -o cat
+```
 ///Cüzdan oluşturuyoruz
 //Eğer Varsa ( --recover) edebilirisiniz
 ```
